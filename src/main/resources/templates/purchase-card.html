@@ -1,10 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Guide</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <link rel="stylesheet" href="../templates/css/style.css">
+    <script src="https://kit.fontawesome.com/b8310f076c.js" crossorigin="anonymous"></script>
 </head>
-<body>
 
+<body>
+    <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+        <a href="home.html" class="navbar-brand text-navy mt-5">
+            <div class="txt font-weight-bold">WHAT DO YOU</div>
+            <div class="txt font-weight-bold">WANT TO DO?</div>
+        </a>
+        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+            <li class="nav-item w-100">
+                <a href="purchase-card.html" class="nav-link text-dark font-weight-bold pl-4"></i>PURCHASING THE PUBLIC TRANSPORT CARD FOR LONDON</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="news-events-tips.html" class="nav-link text-dark font-weight-bold pl-4">NEWS, EVENTS, TIPS IN LONDON</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="all-attractions.html" class="nav-link text-dark font-weight-bold pl-4">ATTRACTIONS IN LONDON AND HOW TO GET THERE?</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="nearby-attractions.html" class="nav-link text-dark font-weight-bold pl-4">ATTRACTIONS NEAR YOU IN 1.86 MILES</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="weather.html" class="nav-link text-dark font-weight-bold pl-4">WEATHER IN LONDON</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="where-to-eat-and-stay.html" class="nav-link text-dark font-weight-bold pl-4">WHERE TO EAT AND STAY</a>
+            </li>
+        </ul>
+    </nav>
+    <section class="p-4 my-container">
+        <button class="btn my-4" id="menu-btn"><i class="fa-solid fa-bars"></i></button>
+    </section>
+
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+    </script>
 </body>
+
 </html>
