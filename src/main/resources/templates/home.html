@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Guide</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
-    <link rel="stylesheet" href="../templates/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <script src="https://kit.fontawesome.com/b8310f076c.js" crossorigin="anonymous"></script>
 </head>
 
@@ -18,7 +18,7 @@
         </a>
         <ul class="navbar-nav d-flex flex-column mt-5 w-100">
             <li class="nav-item w-100">
-                <a href="purchase-card.html" class="nav-link text-dark font-weight-bold pl-4"></i>PURCHASING THE PUBLIC TRANSPORT CARD FOR LONDON</a>
+                <a href="purchase-card.html" class="nav-link text-dark font-weight-bold pl-4">PURCHASING THE PUBLIC TRANSPORT CARD FOR LONDON</a>
             </li>
             <li class="nav-item w-100">
                 <a href="news-events-tips.html" class="nav-link text-dark font-weight-bold pl-4">NEWS, EVENTS, TIPS IN LONDON</a>
@@ -47,9 +47,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
     <!-- custom js -->
     <script>
-        var menu_btn = document.querySelector("#menu-btn")
-        var sidebar = document.querySelector("#sidebar")
-        var container = document.querySelector(".my-container")
+        let menu_btn = document.querySelector("#menu-btn")
+        let sidebar = document.querySelector("#sidebar")
+        let container = document.querySelector(".my-container")
         menu_btn.addEventListener("click", () => {
             sidebar.classList.toggle("active-nav")
             container.classList.toggle("active-cont")
