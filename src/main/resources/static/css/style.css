@@ -4,9 +4,14 @@
     box-sizing: border-box;
 }
 
+.home {
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+}
+
 body {
     min-height: 100vh;
-    background-image: url("../img/background.jpg");
+    background:linear-gradient(rgba(255, 255, 255, .9),rgba(255, 255, 255, .9)),url("../img/Flag_of_the_United_Kingdom.svg\ \(1\).png");
     background-size: cover;
 }
 
@@ -28,6 +33,61 @@ body {
     height: 100px;
     border-radius: 12.5%;
     margin-bottom: 15px;
+}
+
+.card {
+    position: absolute;
+    border: none;
+    left: 49.65%;
+    right: 15.5%;
+    top: 11.43%;
+    bottom: 47%;
+    background: url("../img/London-Pass-Londen-City-Trip-kaart.png");
+}
+
+.take-card {
+    position: absolute;
+    width: 814px;
+    height: 274px;
+    left: 750px;
+    top: 550px;
+    
+    background: #002454;
+    border-radius: 15px;
+}
+
+.take-card-text {
+    position: absolute;
+    width: 814px;
+    height: 274px;
+    left: 750px;
+    top: 550px;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 75px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFF101;
+
+}
+
+#take-ticket {
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 75px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+
+    color: #FFF101;
 }
 
 .nav-link:active,
