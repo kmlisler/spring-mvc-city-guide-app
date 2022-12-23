@@ -15,7 +15,9 @@
             // type_holder
             // <div><label><input type="checkbox" class="types" value="mosque" />Mosque</label></div>
 
-            var types = ['accounting', 'airport', 'amusement_park', 'aquarium', 'art_gallery', 'atm', 'bakery', 'bank', 'bar', 'beauty_salon', 'bicycle_store', 'book_store', 'bowling_alley', 'bus_station', 'cafe', 'campground', 'car_dealer', 'car_rental', 'car_repair', 'car_wash', 'casino', 'cemetery', 'church', 'city_hall', 'clothing_store', 'convenience_store', 'courthouse', 'dentist', 'department_store', 'doctor', 'electrician', 'electronics_store', 'embassy', 'fire_station', 'florist', 'funeral_home', 'furniture_store', 'gas_station', 'gym', 'hair_care', 'hardware_store', 'hindu_temple', 'home_goods_store', 'hospital', 'insurance_agency', 'jewelry_store', 'laundry', 'lawyer', 'library', 'liquor_store', 'local_government_office', 'locksmith', 'lodging', 'mel_delivery', 'meal_takeaway', 'mosque', 'movie_rental', 'movie_theater', 'moving_company', 'museum', 'night_club', 'painter', 'park', 'parking', 'pet_store', 'pharmacy', 'physiotherapist', 'plumber', 'police', 'post_office', 'real_estate_agency', 'restaurant', 'roofing_contractor', 'rv_park', 'school', 'shoe_store', 'shopping_mall', 'spa', 'stadium', 'storage', 'store', 'subway_station', 'synagogue', 'taxi_stand', 'train_station', 'transit_station', 'travel_agency', 'university', 'veterinary_care', 'zoo'];
+            var types = ['amusement_park','aquarium','art_gallery','bowling_alley','bus_station','cafe','campground','casino','church', 'city_hall','embassy','funeral_home',
+                'hindu_temple','library','local_government_office','lodging','mosque','movie_theater','museum','night_club','park','restaurant','rv_park','shopping_mall','spa','stadium',
+                'store','subway_station','synagogue','taxi_stand','train_station','transit_station','university','zoo',];
             var html = '';
 
             $.each(types, function (index, value) {
@@ -58,6 +60,7 @@
 
             // get the selected type
             selectedTypes = [];
+
             $('.types').each(function () {
                 if ($(this).is(':checked')) {
                     selectedTypes.push($(this).val());
@@ -132,13 +135,46 @@
             });
 
             google.maps.event.addListener(marker, 'click', function () {
-                let wikipediaSearch = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search="+place.name;
-                infowindow.setContent(place.name + '<br>' + place.vicinity
-                    + "<br> <a href=\"#\" onClick=\"MyWindow=window.open('"+wikipediaSearch+"','MyWindow','width=800,height=800'); return false;\">" +
-                    " Place Information </a>");
+                // kesme işareti düzelt
+                // BIG BEN
+
+                let name = place.name;
+
+                infowindow.setContent(name + '<br>' + place.vicinity
+                    +"<div id='placeInfo'>No Wikipedia Information About Place</div> ");
+
+                getWikiData(name);
 
                 infowindow.open(map, this);
             });
+        }
+        // getting place name from wikipedia
+        function getWikiData(keyword)  {
+            debugger;
+            $.ajax({
+                url: "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" + keyword + "&prop=info&inprop=url&utf8=&format=json",
+                dataType: "jsonp",
+                success: function(wikiResponse) {
+                    if (wikiResponse === "") {
+                        $('#placeInfo').append(" There is no Wikipedia Info")
+                    } else {
+                        // get wiki's searched name result
+                        let nameResponse = wikiResponse.query.search[0].title;
+
+                        // arrange result for adding wikipedia page url
+                        let targetUrl = "https://en.wikipedia.org/wiki/" +nameResponse.replace(/\s/g, "_");
+
+                        $('#placeInfo').html('').append( "<a href=\"#\" onClick=\"MyWindow=window.open('"+targetUrl+"','MyWindow','width=800,height=800'); return false;\">" +
+                            " Place Information </a> ")
+                    }
+
+                },
+                error: function() {
+                    alert('Error retrieving the desired results');
+
+                }
+            });
+
         }
 
 
@@ -159,7 +195,6 @@
             currentLatitude = position.coords.latitude;
             currentLongitude = position.coords.longitude;
         }
-
         getLocation();
     </script>
 </head>
