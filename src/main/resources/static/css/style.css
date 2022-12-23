@@ -121,6 +121,167 @@ body {
     border-bottom: 5px solid #002454;
 }
 
+.topic-box-attractions {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 684px;
+    height: 120px;
+    left: 656px;
+    top: 41px;
+
+    mix-blend-mode: normal;
+    border-bottom: 5px solid #002454;
+}
+
+.att-img {
+    height: 109px;
+    width: 200px;
+    position: absolute;
+    border-radius: 15px;
+    left: 0px;
+}
+
+.route {
+    position: absolute;
+    left: 70.26%;
+    right: 13.25%;
+    top: 22.94%;
+    bottom: 22.02%;
+}
+
+.att-txt {
+    position: absolute;
+    left: 18.8%;
+    right: 56.39%;
+    top: 10.09%;
+    bottom: 9.17%;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
+}
+
+.att-img-right {
+    height: 109px;
+    width: 150px;
+    position: absolute;
+    border-radius: 15px;
+    right: 0px;
+}
+
+.att-cell1 {
+    position: absolute;
+    width: 1248px;
+    height: 109px;
+    left: 20px;
+    top: 20px;
+    border-radius: 15px;
+    background: #ff0000;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    align-items: center;
+    text-align: center;
+}
+
+.att-cell2 {
+    position: absolute;
+    width: 1248px;
+    height: 109px;
+    left: 20px;
+    top: 144px;
+    border-radius: 15px;
+    background: #002454;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    align-items: center;
+    text-align: center;
+}
+
+.att-cell3 {
+    position: absolute;
+    width: 1248px;
+    height: 109px;
+    left: 20px;
+    top: 268px;
+    border-radius: 15px;
+    background: #ff0000;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    align-items: center;
+    text-align: center;
+}
+
+.att-cell4 {
+    position: absolute;
+    width: 1248px;
+    height: 109px;
+    left: 20px;
+    top: 392px;
+    border-radius: 15px;
+    background: #002454;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    align-items: center;
+    text-align: center;
+}
+
+.att-cell5 {
+    position: absolute;
+    width: 1248px;
+    height: 109px;
+    left: 20px;
+    top: 516px;
+    border-radius: 15px;
+    background: #ff0000;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    align-items: center;
+    text-align: center;
+}
+
+.att-cell6 {
+    position: absolute;
+    width: 1248px;
+    height: 109px;
+    left: 20px;
+    top: 640px;
+    border-radius: 15px;
+    background: #002454;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    align-items: center;
+    text-align: center;
+}
+
 .news {
     position: absolute;
     width: 1288px;
