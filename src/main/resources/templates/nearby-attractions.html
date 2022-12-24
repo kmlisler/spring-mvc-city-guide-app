@@ -10,23 +10,33 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <script src="https://kit.fontawesome.com/b8310f076c.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             // type_holder
             // <div><label><input type="checkbox" class="types" value="mosque" />Mosque</label></div>
 
-            var types = ['amusement_park','aquarium','art_gallery','bowling_alley','bus_station','cafe','campground','casino','church', 'city_hall','embassy','funeral_home',
-                'hindu_temple','library','local_government_office','lodging','mosque','movie_theater','museum','night_club','park','restaurant','rv_park','shopping_mall','spa','stadium',
-                'store','subway_station','synagogue','taxi_stand','train_station','transit_station','university','zoo',];
+            var types = ['amusement_park','aquarium','art_gallery','cafe','campground',
+                'casino','church','funeral_home','hindu_temple','library','lodging','mosque',
+                'movie_theater','museum','night_club','park','restaurant','shopping_mall','stadium',
+                'store','synagogue','university','zoo'];
             var html = '';
 
             $.each(types, function (index, value) {
-                var name = value.replace(/_/g, " ");
+                var name = value.replace(/_|'/g, " ");
                 html += '<div><label><input type="checkbox" class="types" value="' + value + '" />' + capitalizeFirstLetter(name) + '</label></div>';
             });
 
             $('#type_holder').html(html);
         });
+        $(document).ready(function(){
+
+            $('.types').click(function() {
+                $('.types').not(this).prop('checked', false);
+            });
+
+        });
+
 
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
@@ -38,25 +48,23 @@
         var countryRestrict = {'country': 'in'};
         var selectedTypes = [];
 
+        var londonWentmisterLatitude = 51.494720;
+        var londonWentmisterLongitude = -0.135278;
         function initialize() {
-            autocomplete = new google.maps.places.Autocomplete((document.getElementById('address')), {
-                types: ['(regions)'],
-                // componentRestrictions: countryRestrict
-            });
 
-            var pyrmont = new google.maps.LatLng(52.5666644, 4.7333304);
+            var pyrmont = new google.maps.LatLng(londonWentmisterLatitude, londonWentmisterLongitude);
 
             map = new google.maps.Map(document.getElementById('map'), {
                 center: pyrmont,
-                zoom: 12
+                zoom: 15
             });
         }
 
         function renderMap() {
             // Get the user defined values
-            var address = document.getElementById('address').value;
-            //var address = "London";
-            var radius = parseInt(document.getElementById('radius').value) * 1000;
+
+            var address = "London";
+            var radius =  3000;
 
             // get the selected type
             selectedTypes = [];
@@ -71,14 +79,12 @@
             var selLocLat = 0;
             var selLocLng = 0;
 
-            // london coordinates
-            var londonWentmisterLatitude = 51.494720;
-            var londonWentmisterLongitude = -0.135278;
+
 
             geocoder.geocode({'address': address}, function (results, status) {
                 if (status === 'OK') {
-                    selLocLat = results[0].geometry.location.lat();
-                    selLocLng = results[0].geometry.location.lng();
+                    //selLocLat = results[0].geometry.location.lat();
+                    //selLocLng = results[0].geometry.location.lng();
                     // koordinat verilen yer
 
                     //selLocLat   = currentLatitude;
@@ -86,12 +92,22 @@
 
                     //var pyrmont = new google.maps.LatLng(52.5666644, 4.7333304);
 
+                    selLocLat = londonWentmisterLatitude;
+                    selLocLng = londonWentmisterLongitude;
                     var pyrmont = new google.maps.LatLng(selLocLat, selLocLng);
+
 
                     map = new google.maps.Map(document.getElementById('map'), {
                         center: pyrmont,
-                        zoom: 11
+                        zoom: 15
                     });
+                    //Pin location
+                    var marker = new google.maps.Marker({
+                        position: pyrmont,
+                        map: map,
+                        title: "Your Location"
+                    });
+                    marker.setMap(map);
 
                     //console.log(selectedTypes);
 
@@ -135,8 +151,6 @@
             });
 
             google.maps.event.addListener(marker, 'click', function () {
-                // kesme işareti düzelt
-                // BIG BEN
 
                 let name = place.name;
 
@@ -162,7 +176,7 @@
                         let nameResponse = wikiResponse.query.search[0].title;
 
                         // arrange result for adding wikipedia page url
-                        let targetUrl = "https://en.wikipedia.org/wiki/" +nameResponse.replace(/\s/g, "_");
+                        let targetUrl = "https://en.wikipedia.org/wiki/" +nameResponse.replace(/\s/g, "_").replace(/'/g,"%27");
 
                         $('#placeInfo').html('').append( "<a href=\"#\" onClick=\"MyWindow=window.open('"+targetUrl+"','MyWindow','width=800,height=800'); return false;\">" +
                             " Place Information </a> ")
@@ -201,64 +215,48 @@
 
 <body>
 <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
-    <a href="home.html" class="navbar-brand text-navy mt-5">
+    <a href="/" class="navbar-brand text-navy mt-5">
         <div class="txt font-weight-bold">WHAT DO YOU</div>
         <div class="txt font-weight-bold">WANT TO DO?</div>
         <hr>
     </a>
     <ul class="navbar-nav d-flex flex-column mt-5 w-100">
         <li class="nav-item w-100">
-            <a href="purchase-card.html" class="nav-link text-dark font-weight-bold pl-4">PURCHASING THE PUBLIC
-                TRANSPORT CARD FOR LONDON</a>
+            <a href="purchaseCard" class="nav-link text-dark font-weight-bold pl-4">PURCHASING THE PUBLIC TRANSPORT CARD FOR LONDON</a>
         </li>
         <li class="nav-item w-100">
-            <a href="news-events-tips.html" class="nav-link text-dark font-weight-bold pl-4">NEWS, EVENTS, TIPS IN
-                LONDON</a>
+            <a href="newsEventsTips" class="nav-link text-dark font-weight-bold pl-4">NEWS, EVENTS, TIPS IN LONDON</a>
         </li>
         <li class="nav-item w-100">
-            <a href="all-attractions.html" class="nav-link text-dark font-weight-bold pl-4">ATTRACTIONS IN LONDON AND
-                HOW TO GET THERE?</a>
+            <a href="allAttractions" class="nav-link text-dark font-weight-bold pl-4">ATTRACTIONS IN LONDON AND HOW TO GET THERE?</a>
         </li>
         <li class="nav-item w-100">
-            <a href="nearby-attractions.html" class="nav-link text-dark font-weight-bold pl-4">ATTRACTIONS NEAR YOU IN
-                1.86 MILES</a>
+            <a href="nearbyAttractions" class="nav-link text-dark font-weight-bold pl-4">ATTRACTIONS NEAR YOU IN 1.86 MILES</a>
         </li>
         <li class="nav-item w-100">
-            <a href="weather.html" class="nav-link text-dark font-weight-bold pl-4">WEATHER IN LONDON</a>
+            <a href="weather" class="nav-link text-dark font-weight-bold pl-4">WEATHER IN LONDON</a>
         </li>
         <li class="nav-item w-100">
-            <a href="where-to-eat-and-stay.html" class="nav-link text-dark font-weight-bold pl-4">WHERE TO EAT AND
-                STAY</a>
+            <a href="whereToEatAndStay" class="nav-link text-dark font-weight-bold pl-4">WHERE TO EAT AND STAY</a>
         </li>
     </ul>
 </nav>
 <section class="p-4 my-container">
     <button class="btn my-4" id="menu-btn"><i class="fa-solid fa-bars"></i></button>
 </section>
+<div class="topic-box"></div>
+<div class="topic">NEARBY ATTRACTIONS</div>
 <div style="float: right;">
-    <div id="map" style="width:900px; height:600px;"></div>
+    <div id="map" style="width:900px; height:600px; right: 100px;"></div>
 </div>
 
 <div style="float: left; width: 400px; margin-left:300px;">
     <form name="frm_map" id="frm_map">
         <table>
             <tr>
-                <th>Address</th>
-                <td>
-                    <input type="text" name="address" id="address" value="Akersloot, Netherlands">
-                </td>
-
-            </tr>
-            <tr>
-                <th>Radius</th>
-                <td>
-                    <input type="text" name="radius" id="radius" value="5" placeholder="In KM">
-                </td>
-            </tr>
-            <tr>
                 <th>Types</th>
                 <td>
-                    <div id="type_holder" style="height: 200px; overflow-y: scroll;">
+                    <div id="type_holder" style="height: 200px;overflow-y: scroll;">
                         <!-- Dynamic Content -->
                     </div>
                 </td>
