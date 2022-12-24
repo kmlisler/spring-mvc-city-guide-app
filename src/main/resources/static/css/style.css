@@ -8,6 +8,26 @@
     background-image: url("../img/background.jpg");
     background-size: cover;
 }
+.home-msg {
+    position: absolute;
+    width: 641px;
+    height: 497px;
+    left: 850px;
+    top: 300px;
+
+    font-family: 'GFS Didot';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 120px;
+    text-align: center;
+    text-decoration:solid;
+
+    color: white;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 1);
+    -webkit-text-stroke: 2px #000
+
+}
 
 body {
     min-height: 100vh;
@@ -33,6 +53,26 @@ body {
     height: 100px;
     border-radius: 12.5%;
     margin-bottom: 15px;
+}
+
+.error-msg {
+    position: absolute;
+    width: 748px;
+    height: 369px;
+    left: 620px;
+    top: 316px;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 113px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #F90101;
+
 }
 
 .card {
@@ -139,7 +179,7 @@ body {
     width: 200px;
     position: absolute;
     border-radius: 15px;
-    left: 0px;
+    left: 10px;
 }
 
 .route {
@@ -296,7 +336,7 @@ body {
     width: 147px;
     position: absolute;
     border-radius: 15px;
-    left: 0px;
+    left: 10px;
 }
 
 .red {
@@ -416,6 +456,341 @@ body {
     left: 20px;
     top: 692px;
     border-radius: 15px;
+}
+
+.weather {
+    position: absolute;
+    width: 1000px;
+    height: 770px;
+    left: 650px;
+    top: 275px;
+    border-radius: 5px;
+}
+
+.weather img{
+    width: 700px;
+    height: 625px;
+}
+
+.searchbar {
+    position: absolute;
+    left: 900px;
+    top: 169px;
+}
+
+.searchbar input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    border: 1px solid #ccc;
+}
+
+.eat-stay {
+    position: absolute;
+    width: 684px;
+    height: 776px;
+    left: 656px;
+    top: 162px;
+    border-radius: 5px;
+}
+
+.seperator {
+    position: absolute;
+    width: 600px;
+    height: 0px;
+    left: 40px;
+    top: 400px;
+    border: 5px solid #002454;
+    transform: rotate(90deg);
+}
+
+.box-left {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 0px;
+    top: 100px;
+
+    font-family: 'GFS Didot';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    text-align: center;
+
+    color: #F10C0C;
+
+    border-bottom: 5px solid #002454;
+}
+
+.eat-cell1 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 0px;
+    top: 200px;
+    border-radius: 15px;
+    background: #ff0000;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.eat-cell2 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 0px;
+    top: 270px;
+    border-radius: 15px;
+    background: #002454;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.eat-cell3 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 0px;
+    top: 340px;
+    border-radius: 15px;
+    background: #ff0000;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.eat-cell4 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 0px;
+    top: 410px;
+    border-radius: 15px;
+    background: #002454;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.eat-cell5 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 0px;
+    top: 480px;
+    border-radius: 15px;
+    background: #ff0000;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.eat-cell6 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 0px;
+    top: 550px;
+    border-radius: 15px;
+    background: #002454;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.eat-cell7 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 0px;
+    top: 620px;
+    border-radius: 15px;
+    background: #ff0000;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.stay-cell1 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    right: 0px;
+    top: 200px;
+    border-radius: 15px;
+    background: #ff0000;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.stay-cell2 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    right: 0px;
+    top: 270px;
+    border-radius: 15px;
+    background: #002454;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.stay-cell3 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    right: 0px;
+    top: 340px;
+    border-radius: 15px;
+    background: #ff0000;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.stay-cell4 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    right: 0px;
+    top: 410px;
+    border-radius: 15px;
+    background: #002454;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.stay-cell5 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    right: 0px;
+    top: 480px;
+    border-radius: 15px;
+    background: #ff0000;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.stay-cell6 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    right: 0px;
+    top: 550px;
+    border-radius: 15px;
+    background: #002454;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.stay-cell7 {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    right: 0px;
+    top: 620px;
+    border-radius: 15px;
+    background: #ff0000;
+
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.address {
+    font-family: 'Andada Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+.box-right {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    right: 0px;
+    top: 100px;
+
+    font-family: 'GFS Didot';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    text-align: center;
+
+    color: #F10C0C;
+
+    border-bottom: 5px solid #002454;
 }
 
 .nav-link:active,
