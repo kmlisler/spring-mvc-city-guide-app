@@ -41,5 +41,15 @@ public class CityGuideController {
 
         return "where-to-eat-and-stay";
     }
+    @GetMapping("/payment")
+    public String payment(String string){
+
+        return "payment";
+    }
+    @GetMapping("/error")
+    public String error(String string){
+
+        return "error";
+    }
 
 }
